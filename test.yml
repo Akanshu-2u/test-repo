@@ -92,6 +92,8 @@ ALGOLIA_SEARCH_API_KEY: !Encrypted |
 # information.
 ALLOWED_HOSTS: ["*"]
 ######################## edX Recommendations Plugin Settings ########################
+ALLOW_COURSE_RERUNS: true
+ALLOW_COURSE_STAFF_GRADE_DOWNLOADS: true
 ALLOW_ORPHANED_CONTENT_REMOVAL: true
 ALTERNATE_WORKER_QUEUES: cms
 # Trust this header from Cloudflare
@@ -333,6 +335,8 @@ CELERY_QUEUES:
 - edx.lms.core.background_process
 - edx.lms.core.software_secure_verification
 - edx.lms.core.ora_workflow_update
+CERTIFICATES_HTML_VIEW: true
+CERTIFICATES_INSTRUCTOR_GENERATION: true
 CHAT_COMPLETION_API: https://xpert-platform-services-api.prod.ai.2u.com/xpert/chatservice
 CHAT_COMPLETION_API_CONNECT_TIMEOUT: 0.5
 CHAT_COMPLETION_API_READ_TIMEOUT: 20
@@ -702,6 +706,7 @@ CORS_ORIGIN_WHITELIST:
 - https://enterprise-api-doc.edx.org
 - https://enterprise-checkout.edx.org
 COURSEWARE_COURSE_NOT_STARTED_ENTERPRISE_LEARNER_ERROR: true
+COURSEWARE_SEARCH_INCLUSION_DATE: '2024-01-01'
 COURSE_AUTHORING_MICROFRONTEND_URL: https://course-authoring.edx.org
 COURSE_CATALOG_API_URL: https://discovery.edx.org/api/v1
 COURSE_CATALOG_URL_ROOT: https://discovery.edx.org
@@ -730,6 +735,8 @@ CROSS_DOMAIN_CSRF_COOKIE_NAME: prod-edx-csrftoken
 CSRF_COOKIE_SECURE: true
 CSRF_TRUSTED_ORIGINS:
 - https://*.edx.org
+CUSTOM_CERTIFICATE_TEMPLATES_ENABLED: true
+CUSTOM_COURSES_EDX: true
 DASHBOARD_COURSE_LIMIT: 250
 DATABASES:
   default:
@@ -841,7 +848,12 @@ DEFAULT_SITE_THEME: edx.org
 DEPRECATED_ADVANCED_COMPONENT_TYPES: []
 DISABLED_COUNTRIES: ['RU']
 
+DISABLE_AUDIT_CERTIFICATES: true
+DISABLE_COURSE_CREATION: true
 DISABLE_FORUM_V2: true
+DISABLE_HONOR_CERTIFICATES: true
+DISABLE_LIBRARY_CREATION: false
+DISABLE_MOBILE_COURSE_AVAILABLE: true
 DISCOVERY_BACKEND_SERVICE_EDX_OAUTH2_KEY: EdFids2FYOtN9CnsFiQ7jjr6Y0RCLqjH3B0cBFDb
 DISCOVERY_BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL: https://courses.edx.org/oauth2
 DISCOVERY_BACKEND_SERVICE_EDX_OAUTH2_SECRET: !Encrypted |
@@ -874,6 +886,8 @@ DISCUSSION_SPAM_URLS:
  - 't.me'
  - 'telegram.me'
 
+DISPLAY_ANALYTICS_DEMOGRAPHICS: false
+DISPLAY_ANALYTICS_ENROLLMENTS: false
 DJFS:
   bucket: edx-storage
   prefix: prod-edx/
@@ -913,6 +927,7 @@ ECOMMERCE_API_SIGNING_KEY: !Encrypted |
   BBiHlmliJzt1UaIie4UQLM6zpeVetj6ZpPHKEKv50DHCCRiM/4I/8Mv+1Fwcg+a1ukBWZyqADNI=
 ECOMMERCE_API_URL: https://ecommerce.edx.org/api/v2/
 ECOMMERCE_PUBLIC_URL_ROOT: https://ecommerce.edx.org
+EDITABLE_SHORT_DESCRIPTION: false
 EDXMKTG_USER_INFO_COOKIE_NAME: prod-edx-user-info
 EDXNOTES_INTERNAL_API: https://prod-edx-notes-internal.edx.org/api/v1
 EDXNOTES_PUBLIC_API: https://prod-edx-notes.edx.org/api/v1
@@ -957,15 +972,68 @@ EMAIL_HOST_USER: ''
 EMAIL_PORT: 25
 EMAIL_USE_COURSE_ID_FROM_FOR_BULK: true
 EMAIL_USE_TLS: false
+EMBARGO: true
+ENABLE_ANALYTICS_ACTIVE_COUNT: true
+ENABLE_API_DOCS: false
+ENABLE_ASYNC_ANSWER_DISTRIBUTION: true
 ENABLE_AUTHN_LOGIN_BLOCK_HIBP_POLICY: true
 ENABLE_AUTHN_LOGIN_NUDGE_HIBP_POLICY: true
+ENABLE_AUTHN_MICROFRONTEND: true
 ENABLE_AUTHN_REGISTER_HIBP_POLICY: true
 ENABLE_AUTHN_RESET_PASSWORD_HIBP_POLICY: true
+ENABLE_AUTO_GENERATED_USERNAME: true
+ENABLE_BULK_USER_RETIREMENT: true
+ENABLE_CERTIFICATES_IDV_REQUIREMENT: false
+ENABLE_COACHING: false
 ENABLE_CODEJAIL_REST_SERVICE: true
+ENABLE_COMBINED_LOGIN_REGISTRATION: true
 ENABLE_COMPREHENSIVE_THEMING: true
 ENABLE_COPPA_COMPLIANCE: true
+ENABLE_CORS_HEADERS: true
+ENABLE_COUNTRY_ACCESS: true
+ENABLE_COURSEWARE_SEARCH_FOR_COURSE_STAFF: true
+ENABLE_COURSE_ASSESSMENT_GRADE_CHANGE_SIGNAL: true
+ENABLE_COURSE_OLX_VALIDATION: true
+ENABLE_CREATOR_GROUP: false
+ENABLE_CREDIT_API: true
+ENABLE_CREDIT_ELIGIBILITY: true
+ENABLE_CROSS_DOMAIN_CSRF_COOKIE: true
+ENABLE_CSMH_EXTENDED: true
+ENABLE_DEBUG_RUN_PYTHON: false
+ENABLE_DISCUSSION_HOME_PANEL: true
+ENABLE_DISCUSSION_SERVICE: true
 ENABLE_DYNAMIC_REGISTRATION_FIELDS: true
+ENABLE_EDXNOTES: true
+ENABLE_ENTERPRISE_INTEGRATION: true
+ENABLE_FEEDBACK_SUBMISSION: true
+ENABLE_FINANCIAL_ASSISTANCE_FORM: true
+ENABLE_FOOTER_MOBILE_APP_LINKS: true
+ENABLE_FORUM_DAILY_DIGEST: false
+ENABLE_GRADE_DOWNLOADS: true
+ENABLE_INSTRUCTOR_ANALYTICS: true
+ENABLE_INSTRUCTOR_BETA_DASHBOARD: true
+ENABLE_INSTRUCTOR_LEGACY_DASHBOARD: false
+ENABLE_INTEGRITY_SIGNATURE: true
+ENABLE_MAX_FAILED_LOGIN_ATTEMPTS: true
 ENABLE_MFE_CONFIG_API: true
+ENABLE_MKTG_EMAIL_OPT_IN: true
+ENABLE_MKTG_SITE: true
+ENABLE_MOBILE_REST_API: true
+ENABLE_NEW_BULK_EMAIL_EXPERIENCE: true
+ENABLE_OAUTH2_PROVIDER: true
+ENABLE_ORA_MOBILE_SUPPORT: true
+ENABLE_ORA_USERNAMES_ON_DATA_EXPORT: true
+ENABLE_PROCTORED_EXAMS: true
+ENABLE_PUBLISHER: true
+ENABLE_READING_FROM_MULTIPLE_HISTORY_TABLES: false
+ENABLE_SERVICE_STATUS: false
+ENABLE_SPECIAL_EXAMS: true
+ENABLE_THIRD_PARTY_AUTH: true
+ENABLE_VERIFIED_CERTIFICATES: true
+ENABLE_VIDEO_ABSTRACTION_LAYER_API: true
+ENABLE_VIDEO_BUMPER: true
+ENABLE_VIDEO_UPLOAD_PIPELINE: true
+ENABLE_XBLOCK_VIEW_ENDPOINT: true
 ENTERPRISE_ACCESS_INTERNAL_ROOT_URL: https://enterprise-access.edx.org
 ENTERPRISE_ADMIN_PORTAL_BASE_URL: https://portal.edx.org
 ENTERPRISE_ADMIN_PORTAL_HOSTNAME: portal.edx.org
@@ -1430,6 +1498,7 @@ IGNORED_ERRORS:
   REASON_IGNORED: Ignored long ago with no documented reason
 INTEGRATED_CHANNELS_API_CHUNK_TRANSMISSION_LIMIT:
   SAP: 1
+IS_EDX_DOMAIN: true
 JWT_AUTH:
   JWT_AUDIENCE: !Encrypted |
     v/PiKmaYrC2O6TQYIBbO27nouifbwtagqaO2ICvZ429G8W4AlFzwFzNl1hOp5cwLJF3Y/NeW6cvR
@@ -1717,6 +1786,7 @@ Your goal is to assist users in understanding their course content by answering 
 If the user asks a question that is not related to your goal, you must remind the user of your intended goal and function, and then decline to answer.
 LEARNING_MICROFRONTEND_URL: https://learning.edx.org
 LIBRARY_AUTHORING_MICROFRONTEND_URL: https://library-authoring.edx.org
+LICENSING: true
 LMS_BASE: courses.edx.org
 LMS_COMM_DEFAULT_FROM_EMAIL: edX <no-reply@notifications.edx.org>
 
@@ -1782,6 +1852,7 @@ LOGO_WHITE_URL_PNG: https://edx-cdn.org/v3/prod/logo-white.png
 LOGO_WHITE_URL_SVG: https://edx-cdn.org/v3/prod/logo-white.svg
 LOG_DIR: /edx/var/log/edx
 LOG_REQUEST_USER_CHANGES: false
+LTI_1P3_ENABLED: true
 LTI_NRPS_DISALLOW_PII: true
 MAILCHIMP_NEW_USER_LIST_ID: 237694b56d
 MAINTENANCE_BANNER_TEXT: "System maintenance is scheduled for Thursday, March 29,\
@@ -1827,6 +1898,7 @@ MFE_CONFIG_OVERRIDES:
 ####################
 # End MFE Config API
 ####################
+MILESTONES_APP: true
 MKTG_URLS:
   ABOUT: /about-us
   ACCESSIBILITY: /accessibility
@@ -1922,6 +1994,16 @@ MODULESTORE:
           default_class: xmodule.hidden_block.HiddenBlock
           fs_root: /edx/var/edxapp/data
           render_template: common.djangoapps.edxmako.shortcuts.render_to_string
+NOTICES_DEFAULT_REDIRECT_URL: https://courses.edx.org/dashboard
+NOTICES_ENABLE_MOBILE: true
+NOTICES_MAX_SNOOZE_DAYS: 30
+NOTICES_REDIRECT_ALLOWLIST:
+- courses.edx.org
+- learning.edx.org
+- masters.edx.org
+- enterprise.edx.org
+NOTICES_SNOOZE_COUNT_LIMIT: 3
+NOTICES_SNOOZE_HOURS: 24
 NOTIFICATIONS_DEFAULT_FROM_EMAIL: 'no-reply@notifications.edx.org'
 NOTIFICATIONS_EXPIRY: 60
 NOTIFICATION_ASSETS_ROOT_URL: https://edx-notifications-static.edx.org/
@@ -2090,6 +2172,8 @@ PLATFORM_NAME: edX
 PLATFORM_TWITTER_ACCOUNT: '@edxonline'
 POLICY_CHANGE_GRADES_ROUTING_KEY: edx.lms.core.grades_policy_change
 PRESS_EMAIL: press@edx.org
+PREVENT_CONCURRENT_LOGINS: false
+PREVIEW_LMS_BASE: preview.courses.edx.org
 PROCTORING_BACKENDS:
   DEFAULT: proctortrack
   proctortrack:
@@ -2328,6 +2412,8 @@ SELF_PACED_CLOUD_URL: https://edx-notifications-static.edx.org/icons/edX_icon-cl
 SEND_ACTIVATION_EMAIL_URL: 'https://courses.edx.org/api/send_account_activation_email'
 SEND_CERTIFICATE_CREATED_SIGNAL: true
 SEND_CERTIFICATE_REVOKED_SIGNAL: true
+SEND_LEARNING_CERTIFICATE_LIFECYCLE_EVENTS_TO_BUS: true
+SEPARATE_VERIFICATION_FROM_PAYMENT: true
 SERVER_EMAIL: devops@edx.org
 # Sets session timeout to 24 hours in seconds.
 # Keep in sync with SESSION_INACTIVITY_TIMEOUT_IN_SECONDS
@@ -2348,6 +2434,7 @@ SGA_STORAGE_SETTINGS:
 ######################## Commerce Coordinator API SETTINGS ########################
 SHARED_COOKIE_DOMAIN: .edx.org
 SHOW_ACCOUNT_ACTIVATION_CTA: true
+SHOW_FOOTER_LANGUAGE_SELECTOR: true
 SHOW_SKILL_VERIFICATION_PROBABILITY: 0.03
 SINGLE_LEARNER_COURSE_REGRADE_ROUTING_KEY: edx.lms.core.single_user_course_regrade
 SITE_NAME: courses.edx.org
@@ -3596,6 +3683,7 @@ SOCIAL_SHARING_SETTINGS:
   DASHBOARD_TWITTER: true
 SOFTWARE_SECURE_RETRY_MAX_ATTEMPTS: 1
 SOFTWARE_SECURE_VERIFICATION_ROUTING_KEY: edx.lms.core.software_secure_verification
+SQUELCH_PII_IN_LOGS: true
 STATICFILES_STORAGE_KWARGS:
   openedx.core.storage.ProductionS3Storage:
     bucket_name: prod-edx-edxapp-assets
@@ -3604,6 +3692,7 @@ STATIC_ROOT_BASE: /edx/var/edxapp/staticfiles
 # Shared between LMS and CMS
 STATIC_URL_BASE: https://prod-edx-edxapp-assets.edx-cdn.org/static
 STUDIO_NAME: edX Studio
+STUDIO_REQUEST_EMAIL: studio-request@edx.org
 SUMMARY_ENABLED_BY_DEFAULT: false
 SUMMARY_HOOK_HOST: https://ai-spot.prod.oc.2u.com
 SUMMARY_HOOK_JS_PATH: /static/js/main.js
@@ -3659,6 +3748,7 @@ UNIVERSITY_EMAIL: university@edx.org
 UNUSUAL_COOKIE_HEADER_PUBLIC_KEY: 6og+QBmwgKsXV3NVYMwjo0w6PW3mtB+fftnNFl74AGs=
 USERNAME_REPLACEMENT_WORKER: username_replacement_service_worker
 # Default False; enable as needed (TNL-11925)
+USE_ENCRYPTED_USER_DATA: true
 USE_EXTRACTED_ANNOTATABLE_BLOCK: false
 USE_EXTRACTED_DISCUSSION_BLOCK: false
 USE_EXTRACTED_HTML_BLOCK: false
